@@ -1,5 +1,5 @@
 ---
-name: frontend-inspect
+name: visual-check
 description: Inspect the frontend cheaply by measuring, taking cropped screenshots, and calling CLI only when needed. Use whenever the user asks about spacing, alignment, sizes, how a component looks, or whether a UI change worked. 
 ---
 
