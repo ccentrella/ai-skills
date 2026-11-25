@@ -1,0 +1,39 @@
+name: a11y
+
+on:
+  pull_request:
+
+concurrency:
+  group: a11y-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  a11y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm only (needs "packageManager" in package.json, or add `with: version:`)
+      - uses: pnpm/action-setup@v4
+      # bun only
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: __CACHE__ # npm | pnpm | yarn; delete this line for bun
+
+      - run: __INSTALL_CI__
+      - run: __RUN__ lint:a11y
+      - run: __RUN__ build
+      - run: __EXEC__ playwright install --with-deps chromium
+      - run: __RUN__ test:a11y
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-report
+          path: playwright-report/
+          retention-days: 7

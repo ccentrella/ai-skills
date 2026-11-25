@@ -3,7 +3,7 @@
   "owner": {
     "name": "Christopher Centrella"
   },
-  "description": "Skills for clearer writing and token-efficient frontend checks.",
+  "description": "Skills for clearer writing, token-efficient frontend checks, and accessibility setup.",
   "plugins": [
     {
       "name": "deslop",
@@ -19,6 +19,14 @@
       "source": "./",
       "strict": false,
       "skills": ["./visual-check"],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "a11y-setup",
+      "description": "One-time setup of WCAG 2.2 AA accessibility checks (lint, pre-commit, Playwright axe/keyboard/aria tests, CI) for Astro, Next.js and React projects.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./a11y-setup"],
       "license": "Apache-2.0"
     }
   ]
