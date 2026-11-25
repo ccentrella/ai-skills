@@ -1,4 +1,8 @@
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+
+// Resolve Playwright from the project the script is run in, not the skill folder.
+const require = createRequire(`${process.cwd()}/package.json`);
+const { chromium } = require('playwright');
 
 const [url, selector, out = 'shot.png'] = process.argv.slice(2);
 const browser = await chromium.launch();

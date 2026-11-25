@@ -1,9 +1,14 @@
-import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+
+// Resolve Playwright from the project the script is run in, not the skill folder.
+const require = createRequire(`${process.cwd()}/package.json`);
+const { chromium } = require('playwright');
 
 const [url, selA, selB] = process.argv.slice(2);
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 await page.goto(url);
+await page.waitForSelector(selA);
 
 const result = await page.evaluate(([a, b]) => {
     const box = (sel) => {
