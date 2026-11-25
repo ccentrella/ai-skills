@@ -1,6 +1,6 @@
 ---
 name: visual-check
-description: Inspect the frontend cheaply by measuring, taking cropped screenshots, and calling CLI only when needed. Use whenever the user asks about spacing, alignment, sizes, how a component looks, or whether a UI change worked. 
+description: Load this BEFORE any visual or layout verification of a frontend, including checks you start yourself. Use after editing CSS, markup or UI components; when matching a mockup, screenshot or design; before running Playwright, taking or reading a screenshot, or measuring elements; and when the user asks about spacing, padding, alignment, sizes, icons, how something looks, or whether a UI change worked. Do not write your own screenshot or measuring script without loading this first. Measures elements and takes cropped screenshots using few tokens.
 ---
 
 # Frontend visual checks (token-efficient)
