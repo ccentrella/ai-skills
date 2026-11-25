@@ -1,0 +1,25 @@
+{
+  "name": "ai-skills",
+  "owner": {
+    "name": "Christopher Centrella"
+  },
+  "description": "Skills for clearer writing and token-efficient frontend checks.",
+  "plugins": [
+    {
+      "name": "deslop",
+      "description": "Extract key information from AI documents by removing fluff and repetition, or write new content without it.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./deslop"],
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "visual-check",
+      "description": "Verify frontend layout by measuring elements and taking cropped screenshots, using few tokens.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./visual-check"],
+      "license": "Apache-2.0"
+    }
+  ]
+}
