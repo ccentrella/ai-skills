@@ -20,6 +20,7 @@ If a flow needs a few clicks before measuring or screenshotting, add them to the
 
 - Make sure the dev server is running before any script.
 - Screenshots: crop to a selector, viewport only, `deviceScaleFactor: 1`. Never use fullPage.
+- If the page loads data after rendering, pass `--wait <selector>` for an element that only exists once loaded, or `--settled` if the app marks loading with `aria-busy`. Both scripts accept either flag (10s timeout).
 - Do not screenshot after every edit. One check at the end of a change.
 - Save images to disk and read them only when needed.
 - Playwright library must be installed in the project: `npm i -D playwright` then `npx playwright install chromium`.
@@ -28,5 +29,5 @@ If a flow needs a few clicks before measuring or screenshotting, add them to the
 
 ## Available scripts
 
-- **`scripts/measure.js`**: Measures the distance between two elements, or one element's box and spacing styles. Usage: `node scripts/measure.js <url> "<selectorA>" "<selectorB>"`. With only selector A, it returns that element's box and spacing styles.
-- **`scripts/screenshot.js`**: Takes a screenshot of a page or element. Usage: `node scripts/screenshot.js <url> "<selector>" <out.png>`. Omit the selector for a viewport-only shot.
+- **`scripts/measure.js`**: Measures the distance between two elements, or one element's box and spacing styles. Usage: `node scripts/measure.js <url> "<selectorA>" "<selectorB>" [--wait <selector>] [--settled]`. With only selector A, it returns that element's box and spacing styles.
+- **`scripts/screenshot.js`**: Takes a screenshot of a page or element. Usage: `node scripts/screenshot.js <url> "<selector>" <out.png> [--wait <selector>] [--settled]`. Omit the selector for a viewport-only shot.
