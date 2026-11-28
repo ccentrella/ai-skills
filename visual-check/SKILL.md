@@ -29,5 +29,5 @@ If a flow needs a few clicks before measuring or screenshotting, add them to the
 
 ## Available scripts
 
-- **`scripts/measure.js`**: Measures the distance between two elements, or one element's box and spacing styles. Usage: `node scripts/measure.js <url> "<selectorA>" "<selectorB>" [--wait <selector>] [--settled]`. With only selector A, it returns that element's box and spacing styles.
-- **`scripts/screenshot.js`**: Takes a screenshot of a page or element. Usage: `node scripts/screenshot.js <url> "<selector>" <out.png> [--wait <selector>] [--settled]`. Omit the selector for a viewport-only shot.
+- **`scripts/measure.js`**: Measures the distance between two elements, or one element's box and spacing styles. Usage: `node scripts/measure.js <url> "<selectorA>" "<selectorB>" [--wait <selector>] [--settled] [--width 390 --height 844]`. With only selector A, it returns that element's box and spacing styles.
+- **`scripts/screenshot.js`**: Takes a screenshot of a page or element. Usage: `node scripts/screenshot.js <url> "<selector>" <out.png> [--wait <selector>] [--settled] [--width 390 --height 844]`. Omit the selector for a viewport-only shot.

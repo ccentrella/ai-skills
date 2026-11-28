@@ -8,12 +8,12 @@ const { chromium } = require('playwright');
 
 const { values, positionals } = parseArgs({
     allowPositionals: true,
-    options: { wait: { type: 'string' }, settled: { type: 'boolean' } },
+    options: { wait: { type: 'string' }, settled: { type: 'boolean' }, width: { type: 'string', default: '1280' }, height: { type: 'string', default: '800' } },
 });
 const [url, selector, out = 'shot.png'] = positionals;
 const browser = await chromium.launch();
 const page = await browser.newPage({
-    viewport: { width: 1280, height: 800 },
+    viewport: { width: Number(values.width), height: Number(values.height) },
     deviceScaleFactor: 1,
 });
 await page.goto(url);
